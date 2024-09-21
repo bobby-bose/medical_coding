@@ -1,0 +1,18 @@
+<!-- medical_terms.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Terms</title>
+</head>
+<body>
+    <h1>Medical Terms</h1>
+    <ul>
+        {% for term in medical_terms %}
+            <li>{{ term }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

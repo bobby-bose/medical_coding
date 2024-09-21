@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICD Codes</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles here */
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .styled-heading {
+            border: 2px solid #000;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4 styled-heading">Identified ICD Codes</h2>
+
+           <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Full Description</th>
+                <th>Disease Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disease_entry in identified_codes %}
+                {% for code, details_list in disease_entry.items %}
+                    {% for details in details_list %}
+                        <tr>
+                            <td>{{ code }}</td>
+                            <td>{{ details.description }}</td>
+                            <td>{{ details.full_description }}</td>
+                            <td>{{ details.disease_name }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <!-- Bootstrap JS (optional, if you're using Bootstrap features like modals or dropdowns) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
